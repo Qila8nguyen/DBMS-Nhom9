@@ -1,0 +1,116 @@
+<div class="title-content">
+    <span class="title">Quản Lý Thông Tin Thí Sinh</span>
+    <div class="action hidden" id="select_action">
+        <a class="waves-effect waves-light btn" onclick="delete_check()">Xóa
+            <i class="material-icons right">delete</i>
+        </a>
+    </div>
+</div>
+<div class="block-content overflow scrollbar">
+    <div class="content">
+        <div class="preload hidden" id="preload">
+            <img src="res/img/loading.gif" alt="">
+        </div>
+        <table class="centered striped responsive-table" id="table_students">
+            <thead>
+                <tr>
+                    <th class="">
+                        <p><label><input type="checkbox" id="select_all" /><span></span></label></p>
+                    </th>
+                    <th class="">ID</th>
+                    <th class="">Tên</th>
+                    <th class="">Mã Học Sinh</th>
+                    <th class="">Kỳ thi</th>
+                    <th class="">Email</th>
+                    <th class="">Giới Tính</th>
+                    <th class="">Ngày Sinh</th> 
+                </tr>
+            </thead>
+            <tbody class="scrollbar" id="list_students">
+            </tbody>
+        </table>
+    </div>
+    <div class="content fadeRight">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6"><a href="#add_normal" class="active" style="color: #02796e; font-weight: bold;">Thêm Học Sinh</a></li>
+                    <li class="tab col s6"><a href="#_add_via_file" style="color: #02796e; font-weight: bold;">Thêm Bằng File</a></li>
+                </ul>
+            </div>
+            <div id="add_normal" class="col s12">
+                <form action="" method="POST" role="form" id="add_student_form">
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            <label for="hoten">Họ Tên</label>
+                            <input type="text" id="hoten" name="hoten" onchange="" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="tentaikhoan">Tên tài khoản</label>
+                            <input type="text" id="tentaikhoan" name="tentaikhoan" onchange="" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="matkhau">Mật khẩu</label>
+                            <input type="text" id="matkhau" name="matkhau" onchange="" required>
+                        </div>
+                    </div>
+                    <div class="col l6 s12">
+                        <div class="input-field">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" onchange="" required>
+                        </div>
+                        <div class="input-field">
+                            <input type="date" name="ngaysinh" id="ngaysinh" required value="1997-01-01">
+                        </div>
+                        <div class="input-field">
+                            <label for="sodienthoai">Số điện thoại</label>
+                            <input type="number" id="sodienthoai" name="sodienthoai" onchange="" required>
+                        </div>
+                        <span class="title hidden" id="class_error" style="color: red">Cần tạo kỳ thi trước khi tạo tài khoản học sinh, tạo <a href="quan-ly-lop">tại đây</a></span>
+                        <div class="input-field">
+                            <select name="idkythi" id="student_add_class_id">
+                            </select>
+                            <label>Kỳ thi</label>
+                        </div>
+                    </div>
+                    <div class="col l12">
+                        <button type="submit" class="btn" id="add_student" name="add-student">Thêm</button>
+                    </div>
+                </form>
+            </div>
+            <div id="_add_via_file" class="col s12">
+                <span class="title">Tải File Mẫu: <a href="res/files/mau-them-danh-sach-hoc-sinh.xlsx">TẠI ĐÂY</a></span><br />
+                <span class="title">Lưu Ý: <br />1, Không sửa file mẫu tránh gây lỗi khi nhập dữ liệu.</span>
+                <br />
+                <span class="title">2, Tài khoản và email của mỗi tài khoản là duy nhất, không thể trùng nhau.</span>
+                <br />
+                <span class="title">3, Ngày sinh phải đúng định đạnh Y-m-d, ví dụ: 2008-10-29.</span>
+                <br />
+                <span id="error" class="title" style="color: red"></span>
+                <form id="add_via_file" enctype="multipart/form-data">
+                    <div class="file-field input-field col s6">
+                        <div class="input-field">
+                            <select name="class_id" id="_student_add_class_id">
+                            </select>
+                            <label>Kỳ thi</label>
+                        </div>
+                        <div class="input-field btn">
+                            <span>File</span>
+                            <input type="file" name="file_data" id="file_data" required="">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                        <br />
+                        <div class="input-field" style="padding-left: 0">
+                            <button class="btn" type="submit" name="submit">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="res/libs/DataTables/js/jquery.dataTables.js"></script>
+<script src="res/js/students_panel.js"></script>
