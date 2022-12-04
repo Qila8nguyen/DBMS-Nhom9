@@ -1,0 +1,88 @@
+<div class="title-content">
+    <span class="title">Quản Lý Bài Thi</span>
+</div>
+<div class="block-content overflow scrollbar">
+    <div class="content">
+        <div class="preload hidden" id="preload">
+            <img src="res/img/loading.gif" alt="">
+        </div>
+        <table class="striped centered responsive-table" id="table_tests">
+            <thead>
+                <tr>
+                    <th class="">Tên</th>
+                    <th class="">Mã Đề</th>
+                    <th class="">Môn</th>
+                    <th class="">Khối</th>
+                    <th class="">Thông Tin</th>
+                    <th class="">Trạng Thái</th>
+                    <th class=""><i class="material-icons">settings</i></th>
+                </tr>
+            </thead>
+            <tbody class="scrollbar" id="list_tests">
+            </tbody>
+        </table>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div id="add_normal" class="col s12">
+                <form action="" method="POST" role="form" id="add_test_form">
+                    <div class="row col l12">
+                        <div class="input-field">
+                            <label for="tenbaithi">Tên bài thi</label>
+                            <input type="text" id="tenbaithi" name="tenbaithi" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="motabaithi">Mô tả</label>
+                            <input type="text" id="motabaithi" name="motabaithi" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="passwordbaithi">Password bài thi</label>
+                            <input type="text" id="passwordbaithi" name="passwordbaithi" required>
+                        </div>
+                        <div class="input-field">
+                            <select name="grade_id" id="grade_id" onchange="list_unit()">
+                            </select>
+                            <label>Kì thi</label>
+                        </div>
+                        <span class="title hidden" id="subject_error" style="color: red">Cần tạo nhóm câu hỏi trước, tạo <a href="quan-ly-lop">tại đây</a></span>
+                        <div class="input-field">
+                            <select name="subject_id" id="subject_id" onchange="list_unit()">
+                            </select>
+                            <label>Loại nhóm câu hỏi</label>
+                        </div>
+                        <b style="font-size: 18px;">Các nhóm câu hỏi sẽ có trong đề thi:</b><br><br>
+                        <div id="list_unit">
+
+                        </div>
+                        <b style="font-size: 18px;">Loại bài thi:</b>
+                        <div class="input-field">
+                            <input type="text" id="loaibaithi" name="loaibaithi" readonly value="Thi trắc nghiệm">
+                        </div>
+                        <div class="input-field">
+                            <label for="thoiluongbaithi">Thời gian làm bài (phút)</label>
+                            <input type="number" id="thoiluongbaithi" name="thoiluongbaithi" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="thoigianchophepbatdau">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤThời gian cho phép bắt đầu</label>
+                            <input type="datetime-local" id="thoigianchophepbatdau" name="thoigianchophepbatdau" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="thoigiandongbaithi">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤThời gian đóng bài thi</label>
+                            <input type="datetime-local" id="thoigiandongbaithi" name="thoigiandongbaithi" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="diemtoida">Điểm tối đa</label>
+                            <input type="number" id="diemtoida" name="diemtoida" required>
+                        </div>
+                        <div class="col l12 s12">
+                            <button type="submit" class="btn" id="add_test" name="add-test">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="res/libs/DataTables/js/jquery.dataTables.js"></script>
+<script src="res/js/tests_panel.js"></script>
